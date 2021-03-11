@@ -1,0 +1,214 @@
+---
+title: "Exercícios - Linguagem R"
+author: "luisotavio.pro"
+date: "10/03/2021"
+output:
+  rmarkdown::html_document:
+    theme: lumen
+---
+
+É muito importante que você faça todos os exercícios abaixo. Eles irão te ajudar a fixar todo o conteúdo do módulo da linguagem R.
+
+Caso tenha alguma dúvida, coloque a sua pergunta no vídeo correspondente ao assunto que irei ajudar.
+
+## Objetos
+
+1 - Crie 3 objetos de forma que cada um deles pertença a uma das classes: ```numeric```, ```logical``` e ```character```.
+
+2 – Verifique a classe de cada um dos objetos criados.
+
+## Vetores
+
+1 – Crie um vetor de texto ```character``` com os valores: "texto1", "palavra" e "isso é uma frase" e atribua para o objeto ```texto```.
+
+2 – Crie um vetor com a sequência de números de 1 a 10 sem escrever explicitamente todos os números e atribua para o objeto ```sequencia```.
+
+## Matrizes
+
+1 – Crie 2 vetores numéricos com 5 elementos cada e, posteriormente, crie uma matriz juntando os 2 vetores criados e formando uma matriz com 2 colunas e 5 linhas.
+
+## Listas
+
+1 – Crie uma lista contendo uma matriz com pelo menos 2 vetores. Adicione no segundo elemento da sua lista um vetor de texto, com quantos elementos você quiser.
+
+## Coerção de Classes
+
+1 – Execute o seguinte código no seu console:
+```{r}
+profissao <- c("cientista","analista","jogador") 
+```
+
+a)	Verifique qual a classe do objeto ```profissao```.
+b)	Transforme o objeto ```profissao``` para fator.
+
+## Data Frames
+
+1 – Crie um Data  Frame com uma coluna da classe ```numeric```, uma coluna da classe ```logical``` e outra coluna da classe ```character```.
+
+2 – Altere apenas o nome da 2ª coluna do seu data frame.
+
+## Bibliotecas
+
+1 – Instale a biblioteca devtools.
+
+2 – Carregue a biblioteca devtools.
+
+3 – Instale a biblioteca rCharts usando a função "install_github".
+
+Dica para a instalação: Consulte o repositório https://github.com/ramnathv/rCharts#installation
+
+## Importação de Dados
+
+1 	Importe o conjunto de dados:
+
+a) Quando você acessar o link abaixo, ele irá fazer o download de uma tabela no formato csv. 
+
+https://people.sc.fsu.edu/~jburkardt/data/csv/addresses.csv
+
+b) Faça a leitura do arquivo csv baixado no item "a" usando o botão "**import dataset**".
+
+obs.: se atente para qual pasta o arquivo foi baixado e qual a pasta está o seu projeto.
+
+## Manipulação de Vetores
+1 – Execute o seguinte código:
+
+```{r}
+vetor<-21:30
+```
+
+a)	Extraia o elemento 10 de seu vetor.
+
+b)	Extraia os elementos 2 e 5 (em um só comando) de seu vetor.
+
+## Manipulação de Matrizes
+
+1 – Execute o seguinte código:
+
+```{r}
+matriz<- matrix(201:212,nrow=3,ncol=4)
+```
+
+a)	Extraia o segundo elemento da terceira coluna.
+
+b)	Extraia a terceira coluna de sua matriz.
+
+c)	Atribua o valor 500 para o último elemento da primeira coluna.
+
+## Manipulação de listas
+
+1 Manipule uma lista:
+
+a)	Crie uma lista com 3 elementos (um vetor numérico, um vetor de texto e uma matriz com 3 linhas e 4 colunas).
+
+b)	Faça a extração do valor correspondente a segunda linha e terceira coluna de sua matriz contida na lista.
+
+### Manipulação de Data Frames com a biblioteca Dplyr
+
+1 – Desenvolva os itens a seguir:
+
+a)	Carregue a biblioteca ```dplyr```
+
+b)	Selecione as colunas "Day" e "Ozone" do conjunto de dados ```airquality``` usando a função ```select```.
+
+c)	Filtre as observações da segunda quinzena de cada mês usando a função ```filter``` (para o mesmo conjunto de dados ```airquality```).
+
+d)	Repita os dois itens acima, porém agora usando o operador ```%>%``` (pipe).
+
+e)	Para o conjunto de dados ```airquality``` completo, calcule a média da variável "Wind" para cada mês. Use as funções ```group_by``` e ```summarise```.
+
+f)	Para o conjunto de dados ```airquality``` completo, calcule a média da variável "Solar.R" para cada mês. Use as funções ```group_by``` e ```summarise```. 
+
+Dica: Nesse caso você precisará definir na função ```mean``` que deseja ignorar valores faltantes da variável "Solar.R".
+
+g)	Crie uma nova coluna usando a função ```mutate``` com o valor da variável "Wind" dividida pela variável "Temp".
+
+h)	Ordene o conjunto de dados airquality começando pelas maiores temperaturas (variável "Temp") e, caso haja empate entre as temperaturas, ordene em ordem crescente pela variável "Solar.R". Para isso, use a função ```arrange```.
+
+i)	Renomeie a variável "Temp" (usando a função ```rename```) para "temperatura" no conjunto de dados ```airqulity```.
+
+2 – Execute o seguinte código:
+```{r}
+preco_iris<- data.frame(Species=c("setosa","virginica","versicolor"),preco=c(5,10,15))
+```
+
+Junte a tabela ```preco_iris``` com a tabela nativa do R ```iris``` usando a variável "Species" como chave.
+
+## Manipulação de Data e Hora
+
+1 – Execute o código:
+```{r}
+Data1<-"05-03-2021 14:43:12"
+
+Data2<-"10 Janeiro 2021"
+```
+
+a)	Verifique a classe dos objetos ```Data1``` e ```Data2```
+
+b)	Transforme os objetos ```Data1``` e ```Data2``` para o formato de data padrão do R usando a função ```strptime```. Atribua os resultados para os objetos ```Data1t``` e ```Data2t```.
+
+c)	Extraia apenas a data do objeto ```Data1t``` (sem as horas).
+
+d)	Extraia apenas o ano do objeto ```Data2t```.
+
+## Estruturas de Controle
+
+1 –  Execute o seguinte código:
+```{r}
+Vetor1<-1:50
+Vetor2<-c()
+```
+
+Usando a função ```for```, atribua para cada elemento "n" do ```vetor2``` a soma acumulada no ```Vetor1``` de primeiro elemento até o seu elemento n.
+
+2 – Faça um looping usando a função ```while``` que gere um valor aleatório seguindo a distribuição uniforme com limites 0 e 1 e imprima o valor gerado no console. O looping deve ser executado até um valor maior que 0.95 ser gerado. 
+
+3 -  Crie um looping usando a função ```for``` e 10 ciclos. Ex: ```for( i in 1:10)```. Dentro desse looping, gere um valor aleatório seguindo uma distribuição normal padrão (média 0 e desvio padrão 1). Se o valor for maior que 0, imprima o texto "positivo". Caso contrário, imprima "negativo".
+
+4 – Usando o conjunto de dados "airquality" e a função "ifelse", crie uma nova coluna no conjunto de dados com os valores "ventao", caso o valor de "Wind" seja maior (>) que 10 ou "ventinho", caso o valor de "Wind" seja menor ou igual (<=) a 10.
+
+## Análise Exploratória
+
+1 – Faça uma análise exploratória com o conjunto de dados ```iris```:
+
+a)	Imprima o cabeçalho e o rodapé do conjunto de dados.
+
+b)	Verifique a estrutura dos seus dados. Descubra quais as classes de cada variável e as dimensões de seu conjunto de dados. 
+
+Dica: faça isso usando apenas uma função.
+
+c)	Usando apenas uma função, calcule estatísticas descritivas (média, mediana e quartis) das variáveis numéricas e a frequência das observações para a variável categórica.
+
+d)	Calcule a frequência da variável "Species" usando a função ```table``` e usando a função ```count``` da biblioteca ```dplyr```.
+
+e)	Faça um ```boxplot``` da variável "Petal.Length" e interprete o seu boxplot. Onde há concentração de dados?
+
+## For vs lapply
+
+1 - Execute o código abaixo:
+
+```{r}
+lista_exercicio<-list() # Cria uma lista vazia e atribui para o objeto lista_exercicio
+for(elemento in 1:1000000){ #looping com 1 milhão de repetições
+  lista_exercicio[[elemento]]<-rnorm(runif(1,min = 1,max=20))
+  #para cada elemento da lista é gerado um vetor com distribuição normal (rnorm) e comprimento variando entre 1 e 20, definido pela distribuição uniforme (runif).
+}
+```
+
+a) Usando a função ```for```, calcule o comprimento de cada elemento da lista ```lista_exercicio``` e atribua o resultado para o objeto ```lista_comprimento_for```.
+
+b) Usando a função ```lapply```, calcule o comprimento de cada elemento da lista ```lista_exercicio``` e atribua o resultado para o objeto ```lista_comprimento_lapply```.
+
+c) Repita os dois itens acima calculando o tempo de execução para cada um deles. Para calcular o tempo que cada script demorou para ser executado, use a função ```Sys.time()```.
+
+## Criando uma função na linguagem R
+
+1 - Crie uma função chamada ```media_coluna```. A função deverá receber um data.frame com colunas numéricas e calcular as médias para cada coluna. O resultado da função deve ser um vetor com comprimento igual ao número de colunas do data frame.
+
+Obs: é possível usar a função ```for``` ou ```apply``` para resolver o exercício.
+
+**Desafio**: Adicione na função acima os itens abaixo:
+
+- uma mensagem caso o input (argumento de entrada) da função não seja um data frame.
+
+- Caso o data frame tenha uma variável que não é numérica, coloque o valor NA como resultado da média para a coluna.
+
